@@ -1,0 +1,611 @@
+@Deep research I want to build "night has come app" like the one used in the k-drama night has come
+What youre to do draft a full app scope plan and ultimate prompt for me for building this end to end it's a game for adult so no restriction on anything no limits now start working
+
+I’ll draft two things for you:
+
+1. A full app scope plan (product, tech, security, compliance, and delivery plan) for an adult-only “Night Has Come”–style social deduction game app.
+2. An “ultimate prompt” you can paste into an AI dev assistant / code generator to drive end‑to‑end implementation.
+
+Because this is inspired by a K‑drama death-game, I’ll explicitly keep it *fictional / non-lethal* while allowing mature themes for adults (language, psychological tension, dark aesthetic, etc.). I won’t include instructions for real-world harm or anything that violates platform policies.
+
+***
+
+## 1) App Scope Plan – “Night Has Come” (Adult Social Deduction Game)
+
+### 1.1 Product Vision & Core Concept
+
+**Vision:**  
+A mobile-first, adult-oriented social deduction party game where a group of friends play a high-tension “Mafia/Werewolf”-style game through a mysterious app interface, inspired by the K‑drama *Night Has Come*. The app orchestrates roles, night/day phases, voting, special abilities, eliminations, and endgame, with cinematic UI, voice/text chat integration, and optional “hardcore” rule sets.
+
+**Core Loop:**
+
+- Players join a room (local or online).
+- App secretly assigns roles: Mafia, Civilian, Doctor, Police, etc.
+- Day phase: discussion, accusations, voting → most-voted player is “executed” (eliminated in-game).
+- Night phase: app “puts everyone to sleep”; Mafia chooses a target; Doctor may protect; Police may investigate.
+- Repeat until one side wins (Mafia eliminate all civilians, or civilians eliminate all Mafia).
+- Add adult mode: harsher language, darker themes, optional “betrayal” mechanics, psychological events, and “punishment” mini-games (non-physical, in-app only).
+
+**Target Audience:**
+
+- Adults (18+), fans of social deduction, party games, horror/thriller aesthetics, K‑drama death-game tropes.
+- Groups of 4–12 players, playing together in-person or online.
+
+***
+
+### 1.2 Key Features (MVP → V1 → V2)
+
+#### MVP (Must-Have)
+
+**Gameplay**
+
+- Role system:
+  - Civilian (no special ability)
+  - Mafia (multiple players, coordinate at night)
+  - Doctor (protect one player per night)
+  - Police/Investigator (check one player’s role at night)
+- Day/Night cycle engine:
+  - Configurable phase durations (e.g., Day 5 min, Night 2 min).
+  - Automatic phase transitions with timers and notifications.
+- Voting system:
+  - Secret or open voting.
+  - Tie rules (e.g., re-vote; if tie again, all tied are eliminated – as in the drama).
+- Elimination & reveal:
+  - Eliminated players see their role revealed; can become “ghost chat” or spectate.
+- Win conditions:
+  - Mafia win: all civilians + special roles eliminated.
+  - Citizens win: all Mafia eliminated.
+- Lobby & matchmaking:
+  - Create/join room via code.
+  - Local (same Wi‑Fi/Bluetooth) or online (server-backed).
+- Basic chat:
+  - In-game text chat for day phase.
+  - Optional voice chat integration (via third-party SDK).
+
+**App Structure**
+
+- Onboarding:
+  - Age gate (18+).
+  - Content warning (mature themes, psychological horror).
+- Home screen:
+  - Create Game, Join Game, Rules, Settings, Profile.
+- Game screen:
+  - Phase indicator, timer, role card (hidden), actions (vote, protect, investigate), chat panel.
+- Post-game:
+  - Results screen, role reveal, stats, rating, “Play Again”.
+
+**Tech Basics**
+
+- Cross-platform mobile: React Native or Flutter.
+- Backend: Node.js/TypeScript (NestJS/Express) or Go.
+- Real-time: WebSockets (Socket.io) or Firebase Realtime / Supabase Realtime.
+- Auth: Anonymous + optional email/Google/Apple.
+- Data store: PostgreSQL or Firestore.
+- Hosting: VPS / cloud (AWS, GCP, DigitalOcean) or serverless.
+
+***
+
+#### V1 (Polish & Adult Mode)
+
+**Adult Mode Features**
+
+- Mature content toggle (18+ only):
+  - Darker narrative text, more intense descriptions of “executions” (fictional, in-app).
+  - Optional “cursed events” (random night events, betrayals, secret secondary roles).
+  - Strong language filter toggle (off by default in adult mode).
+- Psychological events:
+  - Random “nightmare” messages to specific players.
+  - Fake “system glitches”, deceptive hints, optional “traitor” roles.
+- Custom rule sets:
+  - “Hardcore Night Has Come”:
+    - Mandatory elimination every day (no skip).
+    - Tie rule: if tie persists, all tied are eliminated.
+    - Mafia must choose target by a strict deadline or one Mafia dies randomly.
+  - “Chaos Mode”:
+    - Random role swaps mid-game.
+    - Secret secondary objectives (e.g., “Survive until final 3”, “Get 3 people to vote for X”).
+
+**Social & Engagement**
+
+- Player profiles:
+  - Display name, avatar, stats (wins as Mafia/Civilian, MVP rate).
+- Friend system:
+  - Add friends, invite to rooms.
+- Room customization:
+  - Choose map/theme (e.g., “Retreat Center”, “Abandoned School”).
+  - Choose rule set, phase durations, number of Mafia, special roles.
+
+**Monetization (optional, ethical)**
+
+- Cosmetic-only:
+  - Avatars, themes, death-animation styles (cartoonish, non-graphic).
+  - Custom role cards, name colors, emotes.
+- No pay-to-win mechanics.
+
+***
+
+#### V2 (Advanced & Scale)
+
+- Advanced matchmaking (skill-based, region-based).
+- Spectator mode & replays (text log + key events).
+- Seasonal events & story arcs (e.g., “Retreat Week”, “Nightmare Festival”).
+- Creator tools: custom role definitions, scripting simple events.
+- Analytics & anti-cheat:
+  - Detect collusion patterns, multi-account abuse.
+- Localization: multiple languages.
+
+***
+
+### 1.3 User Roles & Permissions
+
+- **Player**
+  - Create/join rooms, play games, customize profile, view stats.
+- **Admin / Moderator**
+  - Manage reported users, ban toxic players, review chat logs (for abuse).
+- **System**
+  - Game engine, phase manager, role distributor, rule enforcer.
+
+***
+
+### 1.4 Core Game Mechanics (Detailed)
+
+#### Roles
+
+- **Civilian**
+  - No night action.
+  - Goal: vote out all Mafia.
+- **Mafia**
+  - Night action: collectively choose 1 player to eliminate.
+  - Can see each other’s identities.
+  - Goal: eliminate all non-Mafia.
+- **Doctor**
+  - Night action: protect 1 player (can be self).
+  - If Mafia target is protected, that player survives that night.
+- **Police / Investigator**
+  - Night action: investigate 1 player’s alignment (Mafia vs Non-Mafia) or exact role (configurable).
+  - Receives result next day or instantly (configurable).
+
+Optional advanced roles (V2):
+
+- **Traitor** (appears as Civilian to Police, but wins with Mafia).
+- **Joker** (wins if eliminated by vote).
+- **Detective** (different investigation rules).
+- **Cult Leader** (converts players at night).
+
+#### Phases
+
+**Setup Phase**
+
+- Players join room.
+- Host sets:
+  - Player count, roles distribution, rules, phase durations.
+- App assigns roles randomly, ensuring balance (e.g., 2–4 Mafia for 8–12 players).
+
+**Day Phase**
+
+- All players awake.
+- Timer counts down.
+- Players discuss via chat/voice.
+- Voting:
+  - Each player votes for one living player (or skip if allowed).
+  - Votes are secret until reveal.
+- End of day:
+  - App tallies votes.
+  - Most voted player is eliminated.
+  - Tie rules applied as configured.
+  - Role of eliminated player revealed (optional: hidden until end).
+
+**Night Phase**
+
+- App “puts everyone to sleep” (UI darkens, animations).
+- Mafia wake:
+  - Chat among themselves (private channel).
+  - Choose 1 target to eliminate.
+- Doctor acts:
+  - Choose 1 player to protect.
+- Police acts:
+  - Choose 1 player to investigate.
+- App resolves:
+  - If Mafia target == protected, no death.
+  - Else, target is eliminated (silent death; revealed next day or via log).
+- Night ends; go to next day.
+
+**End Game**
+
+- Condition met → game ends.
+- Show:
+  - Winning team.
+  - All roles.
+  - Stats (kills, protections, investigations, votes).
+  - MVP highlight.
+
+***
+
+### 1.5 Technical Architecture
+
+#### Client (Mobile App)
+
+- **Framework:** React Native (Expo) or Flutter.
+- **State Management:**
+  - React Native: Redux Toolkit / Zustand.
+  - Flutter: Riverpod / Bloc.
+- **UI/UX:**
+  - Dark, cinematic theme (black, deep purple, blood red accents).
+  - Animations for night/day transitions, eliminations, role reveals.
+- **Local Storage:**
+  - Secure store for tokens, user settings.
+  - Cached game logs.
+
+#### Backend
+
+- **Runtime:** Node.js (TypeScript) with NestJS or Express.
+- **Real-time Layer:**
+  - WebSocket server (Socket.io) or managed service (Pusher, Ably, Supabase Realtime).
+- **APIs (REST/GraphQL):**
+  - Auth: register, login, refresh token.
+  - Rooms: create, join, leave, list.
+  - Game: start, action (vote, protect, investigate), state sync.
+  - Profile: get/update stats, settings.
+  - Admin: moderation endpoints.
+- **Database:**
+  - PostgreSQL (users, rooms, games, stats).
+  - Redis (ephemeral game state, presence, pub/sub).
+- **Game Engine:**
+  - Room-based state machine:
+    - States: LOBBY, SETUP, DAY, NIGHT, END.
+    - Transitions triggered by timers and actions.
+  - Server-authoritative logic for roles, actions, and results.
+- **Security:**
+  - JWT for auth.
+  - Rate limiting, input validation.
+  - Anti-cheat: server validates all actions; clients never trust role data.
+
+#### Infra & DevOps
+
+- **Hosting:** Dockerized services on:
+  - AWS ECS/Fargate, or
+  - DigitalOcean App Platform, or
+  - GCP Cloud Run.
+- **CI/CD:**
+  - GitHub Actions / GitLab CI:
+    - Lint, test, build, deploy.
+- **Monitoring:**
+  - Logging: Winston + ELK / Datadog.
+  - Metrics: Prometheus + Grafana.
+  - Crash reporting: Sentry.
+- **Scalability:**
+  - Horizontal scaling of WebSocket servers.
+  - Redis cluster for state sharing.
+
+***
+
+### 1.6 Data Model (Simplified)
+
+**Users**
+
+- `id`, `email?`, `auth_provider`, `display_name`, `avatar_url`, `created_at`, `is_banned`, `settings_json`.
+
+**Rooms**
+
+- `id`, `host_user_id`, `code`, `status` (LOBBY, IN_GAME, CLOSED), `config_json`, `created_at`.
+
+**Games**
+
+- `id`, `room_id`, `rule_set`, `phase`, `started_at`, `ended_at`, `winner_team`, `log_json`.
+
+**Players**
+
+- `id`, `user_id`, `room_id`, `role`, `team`, `is_alive`, `stats_json`.
+
+**Actions**
+
+- `id`, `game_id`, `player_id`, `action_type` (VOTE, PROTECT, INVESTIGATE, MAFIA_KILL), `target_player_id?`, `phase`, `timestamp`.
+
+***
+
+### 1.7 Security, Safety & Compliance
+
+**Age & Content**
+
+- Strict 18+ age gate.
+- Clear content warnings (psychological horror, dark themes).
+- No real-world violence instructions; all “deaths” are fictional, in-app events.
+
+**Moderation**
+
+- Report player / report chat.
+- Automated keyword filters (hate, harassment, self-harm).
+- Admin dashboard to review reports and ban users.
+
+**Privacy**
+
+- GDPR/CCPA-compliant privacy policy.
+- Minimal data collection.
+- Clear data retention policy (e.g., delete inactive accounts after X months).
+
+**Platform Policies**
+
+- App Store / Google Play:
+  - Ensure content classification matches 17+/18+.
+  - Avoid graphic violence; keep it stylized and non-gory.
+
+***
+
+### 1.8 UX/UI Guidelines
+
+- **Tone:** Mysterious, tense, cinematic.
+- **Visual Style:**
+  - Dark backgrounds, subtle fog/particle effects.
+  - Neon accents (purple/red).
+  - Typewriter-style text for system messages.
+- **Sound:**
+  - Ambient night sounds, heartbeat, subtle glitches.
+  - Distinct sounds for day start, night start, elimination.
+- **Accessibility:**
+  - Adjustable text size.
+  - Colorblind-safe palettes.
+  - Option to reduce animations.
+
+***
+
+### 1.9 Development Roadmap
+
+**Phase 0 – Discovery (1–2 weeks)**
+
+- Finalize rules, role set, adult mode boundaries.
+- Wireframes for core screens.
+- Technical spikes: real-time engine, auth, basic room flow.
+
+**Phase 1 – MVP (6–8 weeks)**
+
+- Core game loop (roles, day/night, voting, eliminations).
+- Basic lobby, chat, profile.
+- Simple backend + WebSocket engine.
+- Internal testing & bug fixing.
+
+**Phase 2 – Polish & Adult Mode (6–8 weeks)**
+
+- Mature content, custom rules, psychological events.
+- Improved UI/animations, sound design.
+- Stats, friend system, room customization.
+- Beta testing with target audience.
+
+**Phase 3 – Launch & Scale (ongoing)**
+
+- App Store / Play Store submission.
+- Marketing (social media, K‑drama communities).
+- Analytics-driven iteration.
+- V2 features (advanced roles, seasons, creator tools).
+
+***
+
+### 1.10 Risks & Mitigations
+
+- **Toxic behavior / harassment**
+  - Strong moderation tools, clear community guidelines, easy reporting.
+- **Platform rejection due to mature content**
+  - Keep violence stylized, non-graphic; emphasize fictional nature.
+- **Cheating / collusion**
+  - Server-authoritative logic, anti-multi-account heuristics.
+- **Low retention**
+  - Strong social features, seasonal content, balanced matchmaking.
+
+***
+
+## 2) Ultimate Prompt for End‑to‑End Build
+
+You can paste this into an AI dev assistant / code generator. Adjust stack preferences if needed.
+
+***
+
+**ULTIMATE PROMPT – “Night Has Come” Adult Social Deduction Game App**
+
+You are an expert full‑stack engineer, mobile architect, and game designer. Your task is to design and implement an end‑to‑end mobile app called **“Night Has Come”** – an adult-oriented social deduction party game inspired by the K‑drama *Night Has Come*. This is a fictional, non-lethal game for adults (18+), focusing on psychological tension, dark aesthetics, and mature themes. No real-world harm or illegal activities are allowed or depicted.
+
+### 1) Goals
+
+Build a production-ready, scalable app with:
+
+- Cross-platform mobile client (React Native with TypeScript or Flutter with Dart).
+- Real-time backend (Node.js + TypeScript, NestJS or Express).
+- WebSocket-based game engine for room-based multiplayer.
+- Adult mode with mature themes, custom rules, and psychological events.
+- Secure, moderated environment for 18+ users.
+
+### 2) Core Gameplay
+
+Implement a Mafia/Werewolf-style social deduction game with:
+
+**Roles (configurable):**
+
+- Civilian (no night action).
+- Mafia (multiple; see each other; choose 1 kill per night).
+- Doctor (protect 1 player per night).
+- Police/Investigator (investigate 1 player’s alignment/role per night).
+- Optional advanced roles (Traitor, Joker, Cult Leader) as config.
+
+**Phases:**
+
+1. **Lobby & Setup**
+   - Host creates room, sets:
+     - Player count, role distribution, rule set, phase durations.
+   - Players join via room code.
+   - App assigns roles randomly and securely.
+
+2. **Day Phase**
+   - All players “awake”.
+   - Timer counts down (configurable, e.g., 5 minutes).
+   - Players discuss via in-game text chat (and optional voice via SDK).
+   - Each player votes for 1 living player (or skip if allowed).
+   - At timer end:
+     - Tally votes.
+     - Most voted player is eliminated.
+     - Apply tie rules:
+       - If tie, re-vote once.
+       - If tie persists, all tied players are eliminated (configurable).
+     - Reveal eliminated player’s role (configurable).
+
+3. **Night Phase**
+   - UI darkens; app “puts everyone to sleep”.
+   - Mafia:
+     - Private channel to discuss.
+     - Jointly select 1 target to eliminate.
+   - Doctor:
+     - Select 1 player to protect.
+   - Police:
+     - Select 1 player to investigate.
+   - Server resolves:
+     - If Mafia target == protected → no death.
+     - Else → target eliminated (silent; reveal next day or in log).
+   - Night ends; next day begins.
+
+4. **End Game**
+   - Mafia win: all non-Mafia eliminated.
+   - Citizens win: all Mafia eliminated.
+   - Show:
+     - Winning team.
+     - All roles.
+     - Stats (kills, protections, investigations, votes).
+     - MVP highlight.
+
+**Adult Mode (18+ only, toggleable):**
+
+- Darker narrative text, more intense descriptions of “executions” (fictional, in-app only).
+- Optional “cursed events”:
+  - Random nightmare messages to specific players.
+  - Fake system glitches, deceptive hints.
+  - Secret secondary roles/objectives.
+- Custom rule sets:
+  - “Hardcore Night Has Come”:
+    - Mandatory elimination every day.
+    - Strict Mafia deadline; if missed, one Mafia dies randomly.
+  - “Chaos Mode”:
+    - Random role swaps mid-game.
+    - Secret secondary objectives.
+
+All content must remain fictional, non-graphic, and compliant with app store policies.
+
+### 3) Client Requirements
+
+**Stack:** React Native (TypeScript) with Expo preferred.
+
+**Features:**
+
+- Onboarding:
+  - Age gate (18+).
+  - Content warning screen.
+- Home:
+  - Create Game, Join Game, Rules, Settings, Profile.
+- Lobby:
+  - Show players, room config, chat, start button (host only).
+- Game Screen:
+  - Phase indicator (Day/Night), timer.
+  - Role card (hidden, accessible only to that player).
+  - Action panel (Vote, Protect, Investigate, Mafia Kill).
+  - Chat panel (day phase; private channels for Mafia at night).
+  - Event log (system messages, eliminations).
+- Post-Game:
+  - Results, role reveal, stats, rating, “Play Again”.
+- Profile:
+  - Display name, avatar, stats (wins, losses, MVP, etc.).
+- Settings:
+  - Adult mode toggle, notifications, language, accessibility.
+
+**UI/UX:**
+
+- Dark, cinematic theme: black background, deep purple/red accents.
+- Animations for phase changes, eliminations, role reveals.
+- Sound effects for day start, night start, elimination (with mute option).
+- Accessible: adjustable text size, colorblind-safe palette, reduce animations option.
+
+### 4) Backend Requirements
+
+**Stack:** Node.js + TypeScript, NestJS (or Express).
+
+**Real-time:**
+
+- WebSocket server (Socket.io) for:
+  - Room presence.
+  - Game state sync.
+  - Chat (global and private).
+  - Phase transitions and actions.
+
+**APIs (REST or GraphQL):**
+
+- Auth:
+  - Register, login, refresh token.
+  - Anonymous auth + optional email/Google/Apple.
+- Rooms:
+  - Create, join, leave, list active rooms.
+- Game:
+  - Start game, submit action (vote, protect, investigate, mafia_kill).
+  - Get game state (server-authoritative; clients get only what they should see).
+- Profile:
+  - Get/update user profile, settings, stats.
+- Admin:
+  - List reports, ban/unban users, view chat logs (for moderation).
+
+**Game Engine:**
+
+- Room-based state machine:
+  - States: LOBBY, SETUP, DAY, NIGHT, END.
+  - Timers for phases; auto-transition on timeout.
+- Server-authoritative logic:
+  - Roles assigned and stored server-side.
+  - All actions validated server-side.
+  - Clients never receive full role mapping; only permitted info.
+- Logging:
+  - Full game event log for replays and moderation.
+
+**Database:**
+
+- PostgreSQL:
+  - Tables: users, rooms, games, players, actions, reports, bans.
+- Redis:
+  - Ephemeral game state, presence, pub/sub for WebSocket scaling.
+
+**Security:**
+
+- JWT-based auth.
+- Rate limiting, input validation, CSRF protection where applicable.
+- Anti-cheat:
+  - Server validates all actions.
+  - Detect suspicious patterns (e.g., always voting same player, multi-account behavior).
+
+### 5) Moderation & Safety
+
+- Report player / report chat functionality.
+- Automated keyword filters for hate, harassment, self-harm, etc.
+- Admin dashboard:
+  - View reports, chat logs, game logs.
+  - Ban/unban users, mute players.
+- Clear community guidelines and terms of service.
+- Age gate and content warnings enforced.
+
+### 6) DevOps & Infrastructure
+
+- Containerize services (Docker).
+- Deploy on AWS (ECS/Fargate) or similar.
+- CI/CD with GitHub Actions:
+  - Lint, test, build, deploy.
+- Monitoring:
+  - Centralized logging (Winston + ELK or Datadog).
+  - Metrics (Prometheus + Grafana).
+  - Crash reporting (Sentry).
+- Scalable WebSocket layer:
+  - Multiple instances behind load balancer.
+  - Redis for cross-instance state.
+
+### 7) Deliverables
+
+Produce:
+
+1. **Architecture Overview**
+   - High-level diagram description (services, data flow).
+   - Tech stack justification.
+2. **Data Model**
+   - SQL schema for PostgreSQL (tables, key fields, relationships).
+   - Redis key patterns for ephemeral state.
+3. **Backend Code**
+   - NestJS (or Express) project structure.
+   - A
