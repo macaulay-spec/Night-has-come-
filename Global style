@@ -1,0 +1,367 @@
+Continue
+
+You’ve hit the image generation limit for this month, so I can’t produce more UI images directly right now. You can either upgrade to Pro for more credits, or I can continue in a text‑only way and give you:
+
+- A detailed screen‑by‑screen UI spec you (or a designer) can implement in Figma/Sketch.
+- Prompt snippets you can paste into an image generator (Midjourney, Stable Diffusion, etc.) to create each screen.
+
+Below is a concise but complete UI/UX spec for all key screens, plus per‑screen image prompts.
+
+***
+
+## Global Style Guide
+
+- **Theme:** Dark, cinematic, horror‑thriller.
+- **Colors:**
+  - Background: `#050507` to `#0B0B10`
+  - Primary accent: deep red `#C62828`
+  - Secondary accent: neon purple `#7B1FA2`
+  - Text primary: `#EAEAEA`
+  - Text secondary: `#9AA0A6`
+  - Success: muted green `#2E7D32`
+  - Danger: red `#D32F2F`
+- **Typography:**
+  - Headings: sharp, slightly condensed sans-serif (e.g., “Orbitron”, “Rajdhani”, or similar).
+  - Body: clean sans-serif (Inter, Roboto).
+- **UI Elements:**
+  - Buttons: rounded rectangles, 12–16px radius, strong shadow/glow for primary.
+  - Cards: dark panels with subtle gradient, 8–12px radius.
+  - Icons: thin line icons, minimal.
+- **Animations:**
+  - Fade/slide transitions between screens.
+  - Subtle fog/particle background on key screens.
+  - Heartbeat pulse on “Night” phase.
+
+Use this style for all screens below.
+
+***
+
+## 1. Splash Screen
+
+**Purpose:** Branding, mood setting.
+
+**Layout:**
+- Full black background with faint fog/particles.
+- Centered logo text: “NIGHT HAS COME”.
+- Small tagline under it: “A game of lies, trust, and survival.”
+- No other UI.
+
+**Image Prompt:**
+> Mobile app UI screen: splash screen for a dark social deduction game called “NIGHT HAS COME”. Black background with subtle fog and particle effects. Large stylized title text “NIGHT HAS COME” in the center in a sharp, slightly glowing font. Small tagline below: “A game of lies, trust, and survival.” Minimalist, cinematic, horror-thriller aesthetic, high contrast, mobile phone frame visible.
+
+(You already have an image for this.)
+
+***
+
+## 2. Age Gate & Content Warning
+
+**Purpose:** Enforce 18+, show content warnings.
+
+**Layout:**
+- Top: big “18+ ONLY” badge (red).
+- Center block:
+  - Heading: “Mature Content Warning”.
+  - Body text:
+    - “This app contains mature themes, psychological horror, and dark fictional content.”
+    - “All deaths and executions are fictional and occur only within the game.”
+- Bottom: two buttons:
+  - Primary: “I am 18+ – Enter” (red).
+  - Secondary: “Exit” (gray).
+
+**Image Prompt:**
+> Mobile app UI screen: age gate and content warning for an 18+ horror social deduction game. Dark background with red accents. Large bold “18+ ONLY” badge at top. Warning text in the center: “This app contains mature themes, psychological horror, and dark fictional content. All deaths and executions are fictional and occur only within the game.” Two buttons at bottom: “I am 18+ – Enter” (red, prominent) and “Exit” (gray). Cinematic, tense, adult-oriented aesthetic, mobile phone frame visible.
+
+***
+
+## 3. Quick Tutorial / Rules Summary
+
+**Purpose:** Teach core loop in 3–4 cards.
+
+**Layout:**
+- Carousel of 3–4 full‑width cards:
+  1. “Day: Discuss & Vote”
+     - Icon: sun / chat bubble.
+     - Short text: “During the day, talk, accuse, and vote to eliminate a player.”
+  2. “Night: Secrets & Actions”
+     - Icon: moon / eye.
+     - Text: “At night, Mafia choose a victim, Doctor protects, Police investigate.”
+  3. “Win: Eliminate the Other Side”
+     - Icon: trophy / scales.
+     - Text: “Civilians win if all Mafia are gone. Mafia win if they outnumber civilians.”
+- Pagination dots at bottom.
+- “Continue” button (primary).
+
+**Image Prompt:**
+> Mobile app UI screen: quick tutorial carousel for a dark social deduction game. Three full-width cards on a dark background with red and purple accents. Card 1: “Day: Discuss & Vote” with sun/chat icon and short description. Card 2: “Night: Secrets & Actions” with moon/eye icon. Card 3: “Win: Eliminate the Other Side” with trophy icon. Pagination dots at bottom, large “Continue” button. Cinematic, minimalist, mobile phone frame.
+
+***
+
+## 4. Home / Main Menu
+
+**Purpose:** Hub to create/join games, access profile, settings, rules.
+
+**Layout:**
+- Background: dark, moody scene (e.g., corridor at night, fog).
+- Top bar:
+  - Left: avatar circle + display name.
+  - Right: gear icon (settings).
+- Center column of large buttons:
+  - “Create Game”
+  - “Join Game”
+  - “Rules”
+  - “Profile”
+- Bottom row:
+  - Toggle: “Adult Mode” with warning icon and small text: “Mature events & themes”.
+
+**Image Prompt:**
+> Mobile app UI screen: home/main menu for a dark social deduction game app. Moody night background (abandoned school corridor or retreat center). Top bar with user avatar and name on left, settings icon on right. Center column of large glowing buttons: “Create Game”, “Join Game”, “Rules”, “Profile”. Bottom toggle switch labeled “Adult Mode” with small warning icon. Dark, cinematic, high contrast, mobile phone frame.
+
+***
+
+## 5. Create Game Screen
+
+**Purpose:** Configure room and rules.
+
+**Layout:**
+- Header: “Create Game”.
+- Form fields (vertical):
+  - Room Name (optional text field).
+  - Player Count: slider or stepper (4–12).
+  - Rule Set: dropdown/cards (Standard, Hardcore, Chaos).
+  - Day Duration: time picker (e.g., 3–10 min).
+  - Night Duration: time picker (e.g., 1–3 min).
+  - Tie Rules: dropdown (Re‑vote, All tied eliminated, etc.).
+  - Adult Mode Events: toggle (Nightmare messages, Fake glitches, Secret objectives).
+- Bottom: “Create Room” button (primary).
+
+**Image Prompt:**
+> Mobile app UI screen: create game configuration screen for a dark social deduction app. Dark background with red/purple accents. Form fields: “Room Name”, “Player Count” slider, “Rule Set” dropdown (Standard, Hardcore, Chaos), “Day Duration” and “Night Duration” time pickers, “Tie Rules” dropdown, “Adult Mode Events” toggle. Large “Create Room” button at bottom. Clean, cinematic UI, mobile phone frame.
+
+***
+
+## 6. Lobby (Host View)
+
+**Purpose:** Wait for players, start game.
+
+**Layout:**
+- Top: room code large: “CODE: X7Z9”.
+- Subtext: “Share this code with friends”.
+- Player list:
+  - Each row: avatar, name, “Host” badge for host, kick icon (for host only).
+- Chat preview area (small, scrollable).
+- Bottom: “Start Game” button (disabled until min players).
+
+**Image Prompt:**
+> Mobile app UI screen: game lobby (host view) for a dark multiplayer game. Top shows large room code “CODE: X7Z9” and text “Share this code with friends”. Below, list of players with avatars, names, host badge, and small kick icon. Small chat preview area. Large “Start Game” button at bottom (disabled style). Dark, cinematic UI with red accents, mobile phone frame.
+
+***
+
+## 7. Join Game Screen
+
+**Purpose:** Enter room code and join.
+
+**Layout:**
+- Header: “Join Game”.
+- Input: large text field “Enter Room Code”.
+- Button: “Join”.
+- Optional: “Recent Rooms” list below (name, code, players).
+
+**Image Prompt:**
+> Mobile app UI screen: join game screen for a dark social deduction app. Dark background. Large input field labeled “Enter Room Code”. Big “Join” button below. Optional small “Recent Rooms” list with room names, codes, and player counts. Minimal, cinematic style, mobile phone frame.
+
+***
+
+## 8. Lobby (Player View)
+
+**Purpose:** Wait for host to start.
+
+**Layout:**
+- Top: room code, host name.
+- Player list (same as host but no kick icons).
+- Status text: “Waiting for host to start…”
+- Chat area (full lobby chat).
+
+**Image Prompt:**
+> Mobile app UI screen: game lobby (player view) for a dark multiplayer game. Top shows room code and host name. List of players with avatars and names. Status text “Waiting for host to start…”. Chat area below. No kick icons. Dark, cinematic UI, mobile phone frame.
+
+***
+
+## 9. Day Phase Screen
+
+**Purpose:** Discussion and voting.
+
+**Layout:**
+- Top bar:
+  - “DAY” label with timer (e.g., 04:59).
+- Middle:
+  - Event log panel (system messages, eliminations).
+  - Chat panel (scrollable, day chat).
+- Bottom action bar:
+  - “Vote” button (primary).
+  - “View Roles” button (secondary) → opens your role card.
+
+**Image Prompt:**
+> Mobile app UI screen: day phase of a social deduction game. Top bar shows “DAY” and countdown timer (e.g., 04:59). Middle section with event log (system messages) and scrollable chat panel. Bottom action bar with “Vote” button (prominent) and “View Roles” button. Dark background with warm ambient lighting, mobile phone frame.
+
+***
+
+## 10. Vote Modal (Day)
+
+**Purpose:** Choose who to eliminate.
+
+**Layout (modal over day screen):**
+- Title: “Vote to Eliminate”.
+- List of living players:
+  - Each row: avatar, name, “Vote” button.
+- Optional: “Skip Vote” toggle.
+- Confirm dialog after selecting: “Vote for [Name]? This cannot be undone this round.” with “Confirm” / “Cancel”.
+
+**Image Prompt:**
+> Mobile app UI modal: vote screen for a dark social deduction game. Overlay over day phase screen. Title “Vote to Eliminate”. List of living players with avatars, names, and “Vote” buttons. Optional “Skip Vote” toggle. Confirmation dialog: “Vote for [Name]? This cannot be undone this round.” with “Confirm” and “Cancel”. Dark, cinematic style, mobile phone frame.
+
+***
+
+## 11. Night Phase Screen (Civilian View)
+
+**Purpose:** Show night atmosphere, no actions for civilians.
+
+**Layout:**
+- Top bar: “NIGHT” with timer (e.g., 01:59).
+- Center message: “You are asleep…”
+- Subtext: “Wait for morning…”
+- Background darker, subtle fog, heartbeat-like pulse.
+
+**Image Prompt:**
+> Mobile app UI screen: night phase (civilian view) for a social deduction game. Top bar shows “NIGHT” and timer (e.g., 01:59). Center text “You are asleep…” and subtext “Wait for morning…”. Very dark background with subtle fog and faint pulse effect. Minimal UI, mobile phone frame.
+
+***
+
+## 12. Night Phase – Mafia Action
+
+**Purpose:** Mafia choose victim.
+
+**Layout:**
+- Top: “NIGHT – Mafia”.
+- Section: “Choose a target to eliminate”.
+- List of living players (excluding self? including self if allowed) with “Select” buttons.
+- “Mafia Chat” tab/button to open private chat.
+- Confirm: “Eliminate [Name]?” with “Confirm” / “Cancel”.
+
+**Image Prompt:**
+> Mobile app UI screen: night phase for Mafia players in a social deduction game. Top label “NIGHT – Mafia”. Section “Choose a target to eliminate” with list of players (avatars, names) and “Select” buttons. Small “Mafia Chat” tab. Confirmation dialog: “Eliminate [Name]?” with “Confirm” and “Cancel”. Dark, red-accented UI, mobile phone frame.
+
+***
+
+## 13. Night Phase – Doctor Action
+
+**Purpose:** Doctor protects a player.
+
+**Layout:**
+- Top: “NIGHT – Doctor”.
+- Text: “Choose a player to protect tonight.”
+- List of players with “Protect” buttons.
+- Confirm: “Protect [Name]?” dialog.
+
+**Image Prompt:**
+> Mobile app UI screen: night phase for Doctor role in a social deduction game. Top label “NIGHT – Doctor”. Text “Choose a player to protect tonight.” List of players with avatars, names, and “Protect” buttons. Confirmation dialog: “Protect [Name]?”. Dark UI with subtle purple/green accents, mobile phone frame.
+
+***
+
+## 14. Night Phase – Police Action
+
+**Purpose:** Investigate a player.
+
+**Layout:**
+- Top: “NIGHT – Police”.
+- Text: “Choose a player to investigate.”
+- List of players with “Investigate” buttons.
+- Result shown next day or instantly (configurable).
+
+**Image Prompt:**
+> Mobile app UI screen: night phase for Police/Investigator role in a social deduction game. Top label “NIGHT – Police”. Text “Choose a player to investigate.” List of players with avatars, names, and “Investigate” buttons. Dark UI with blue/purple accents, mobile phone frame.
+
+***
+
+## 15. Role Card (Hidden Info)
+
+**Purpose:** Show player their own role & objective.
+
+**Layout (modal or dedicated screen):**
+- Title: “Your Role”.
+- Big role name: e.g., “Mafia”, “Doctor”, “Civilian”.
+- Objective text: 1–2 lines.
+- Ability description (if any).
+- “Close” button.
+
+**Image Prompt:**
+> Mobile app UI modal: role card for a social deduction game. Dark card overlay. Title “Your Role”. Large role name (e.g., “Mafia”) in bold stylized font. Short objective text and ability description below. “Close” button at bottom. Cinematic, high contrast, mobile phone frame.
+
+***
+
+## 16. Elimination & Reveal (Eliminated Player)
+
+**Purpose:** Inform player they’re out, reveal role.
+
+**Layout:**
+- Dark overlay with red accent.
+- Text: “You have been eliminated.”
+- Subtext: “You were: [Role]”.
+- Buttons: “Continue as Spectator”, “Leave Game”.
+
+**Image Prompt:**
+> Mobile app UI modal: elimination screen for a social deduction game. Dark overlay with red accents. Text “You have been eliminated.” Below: “You were: [Role]”. Two buttons: “Continue as Spectator” and “Leave Game”. Dramatic, cinematic style, mobile phone frame.
+
+***
+
+## 17. End Game / Results Screen
+
+**Purpose:** Show winner, all roles, stats.
+
+**Layout:**
+- Big banner: “CIVILIANS WIN” or “MAFIA WIN”.
+- Grid/list of all players:
+  - Avatar, name, role, status (alive/eliminated).
+- Stats section:
+  - Rounds, kills, protections, investigations, MVP.
+- Buttons: “Play Again”, “Leave”.
+
+**Image Prompt:**
+> Mobile app UI screen: end game results for a social deduction game. Large banner “CIVILIANS WIN” or “MAFIA WIN”. Grid of players with avatars, names, roles, and alive/eliminated status. Stats section showing rounds, kills, protections, investigations, MVP. Buttons “Play Again” and “Leave”. Dark, cinematic UI, mobile phone frame.
+
+***
+
+## 18. Profile Screen
+
+**Purpose:** Show identity, stats, history.
+
+**Layout:**
+- Top: avatar, display name, optional level/badge.
+- Stats:
+  - Games played, wins as Mafia, wins as Civilian, MVP rate.
+- Optional: recent games list.
+
+**Image Prompt:**
+> Mobile app UI screen: user profile for a dark social deduction game. Top section with avatar circle, display name, optional level badge. Stats section: games played, wins as Mafia, wins as Civilian, MVP rate. Optional recent games list. Dark background with red/purple accents, mobile phone frame.
+
+***
+
+## 19. Settings Screen
+
+**Purpose:** App preferences, adult mode, legal links.
+
+**Layout:**
+- Toggles:
+  - Adult Mode (with warning icon).
+  - Sound On/Off.
+  - Notifications On/Off.
+  - Reduce Motion.
+- Language selector.
+- Links: Terms, Privacy, Community Guidelines, Report a Problem.
+
+**Image Prompt:**
+> Mobile app UI screen: settings for a dark social deduction game app. Dark background. Toggle rows: “Adult Mode” with warning icon, “Sound”, “Notifications”, “Reduce Motion”. Language dropdown. Links section: Terms, Privacy, Community Guidelines, Report a Problem. Clean, minimal, mobile phone frame.
+
+***
+
+If you tell me which tool you’ll use to generate images (Midjourney, SDXL, etc.), I can tailor these prompts exactly to its syntax and aspect ratios so you can batch‑generate the full UI set quickly.
+
