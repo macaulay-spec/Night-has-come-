@@ -1,0 +1,179 @@
+This is a nice full scope plan now can you generate app UI UX image from end to end
+
+I’ll design a complete end‑to‑end UI/UX flow for the “Night Has Come” adult social deduction app and then generate key screen images to visualize it.
+
+Below is the screen flow, then I’ll create images for each major screen.
+
+***
+
+## End‑to‑End UI/UX Flow
+
+### 1. Onboarding & Age Gate
+
+**Screens:**
+1. Splash screen  
+   - Black background, subtle fog/particles.  
+   - Title: “NIGHT HAS COME” in stylized font.  
+   - Small tagline: “A game of lies, trust, and survival.”
+
+2. Age Gate & Content Warning  
+   - Bold “18+ ONLY” badge.  
+   - Text:  
+     - “This app contains mature themes, psychological horror, and dark fictional content.”  
+     - “All deaths and executions are fictional and occur only within the game.”  
+   - Buttons: “I am 18+ – Enter” / “Exit”.
+
+3. Quick Tutorial / Rules Summary  
+   - 3–4 swipeable cards:  
+     - “Day: Discuss & Vote”  
+     - “Night: Secrets & Actions”  
+     - “Win: Eliminate the other side”  
+   - “Continue” button.
+
+***
+
+### 2. Home / Main Menu
+
+**Main Home Screen:**
+- Background: dark, moody scene (e.g., abandoned school corridor or retreat center at night).
+- Top bar: profile avatar, display name, settings icon.
+- Central panel with large buttons:
+  - “Create Game”
+  - “Join Game”
+  - “Rules”
+  - “Profile”
+- Bottom toggle: “Adult Mode: ON/OFF” (with warning icon).
+
+***
+
+### 3. Create Game Flow
+
+**Create Game Screen:**
+- Form / options:
+  - Room Name (optional).
+  - Player Count (slider or preset: 4–12).
+  - Role Distribution (preset configurations: Standard, Hardcore, Chaos).
+  - Phase Durations (Day length, Night length).
+  - Tie Rules (dropdown: re‑vote, all tied eliminated, etc.).
+  - Adult Mode events toggle (nightmare messages, fake glitches, etc.).
+- Button: “Create Room”.
+
+**Lobby (Host View):**
+- Room code displayed prominently (e.g., “CODE: X7Z9”).
+- List of joined players (avatars + names).
+- Host controls:
+  - “Start Game” (enabled when min players reached).
+  - “Kick” icon next to each player.
+  - Chat preview (lobby chat).
+
+***
+
+### 4. Join Game Flow
+
+**Join Game Screen:**
+- Input field: “Enter Room Code”.
+- Button: “Join”.
+- Recent rooms list (optional).
+
+**Lobby (Player View):**
+- Room code, host name.
+- List of players.
+- Status: “Waiting for host to start…”
+- Lobby chat.
+
+***
+
+### 5. Game Screen – Core Loop
+
+**Day Phase Screen:**
+- Top: Phase indicator “DAY” with timer (e.g., 04:59).
+- Middle:
+  - Event log panel (system messages, eliminations).
+  - Chat panel (scrollable, day chat).
+- Bottom:
+  - Action bar:
+    - “Vote” button (opens vote modal).
+    - “View Roles” (shows your own role card only).
+- Visual style: brighter than night but still dark; warm ambient light.
+
+**Vote Modal (Day):**
+- List of living players with avatars.
+- Each has a “Vote” button.
+- Optional: “Skip Vote” toggle if allowed.
+- Confirm dialog: “Vote for [Name]? This cannot be undone this round.”
+
+**Night Phase Screen:**
+- Top: Phase indicator “NIGHT” with timer (e.g., 01:59).
+- Background: darker, subtle animation (fog, flicker).
+- Center:  
+  - Message: “You are asleep…” for civilians.  
+  - For special roles: action UI.
+- For Mafia:
+  - Private channel tab: “Mafia Chat”.
+  - List of living players; select target to kill.
+  - Confirm: “Eliminate [Name]?”
+- For Doctor:
+  - “Protect” button → list of players → choose target.
+- For Police:
+  - “Investigate” button → list → choose target.
+- Event log shows only allowed info (e.g., “Night has begun”, “A player died last night” – not who).
+
+**Role Card (Hidden Info):**
+- Modal or dedicated screen:
+  - Your role: e.g., “Mafia”, “Doctor”, “Civilian”.
+  - Your objective (short text).
+  - Special ability description.
+- Only visible to that player.
+
+***
+
+### 6. Elimination & Reveal
+
+**Elimination Screen (for eliminated player):**
+- Dark overlay, red accent.
+- Text: “You have been eliminated.”
+- Your role revealed: e.g., “You were: Mafia”.
+- Button: “Continue as Spectator”.
+- Option: “Leave Game”.
+
+**Spectator View:**
+- Can see event log and chat but cannot act.
+- Can view all roles (if enabled by rules).
+
+***
+
+### 7. End Game / Results
+
+**Results Screen:**
+- Big banner: “CIVILIANS WIN” or “MAFIA WIN”.
+- Grid of all players:
+  - Avatar, name, role, status (alive/eliminated).
+- Stats:
+  - Total rounds, kills, protections, investigations, MVP.
+- Buttons:
+  - “Play Again” (re‑queue or recreate room).
+  - “Leave”.
+
+***
+
+### 8. Profile & Settings
+
+**Profile Screen:**
+- Avatar, display name, level/badge (optional).
+- Stats:
+  - Games played, wins as Mafia/Civilian, MVP rate.
+- Recent games list (optional).
+
+**Settings Screen:**
+- Toggles:
+  - Adult Mode (with warning).
+  - Sound On/Off.
+  - Notifications On/Off.
+  - Reduce Motion.
+- Language selector.
+- Links: Terms, Privacy, Community Guidelines, Report a Problem.
+
+***
+
+Now I’ll generate UI/UX images for the key screens in this flow. I’ll create a cohesive, dark, cinematic style.
+
