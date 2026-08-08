@@ -6,16 +6,13 @@ export function useSocket() {
   const [connected, setConnected] = useState(false);
 
   useEffect(() => {
-    // In dev, Vite proxies /socket.io to the realtime server
-    // In production, tries relative connection (needs the realtime server deployed too)
-    const socketUrl = import.meta.env.PROD
-      ? window.location.origin
-      : undefined;
-
-    const socket = io(socketUrl, {
+    const url = import.meta.env.DEV ? 'http://localhost:3002' : window.location.origin;
+    const socket = io(url, {
       transports: ['websocket', 'polling'],
-      reconnectionAttempts: 3,
-      timeout: 5000,
+      reconnection: true,
+      reconnectionAttempts: 10,
+      reconnectionDelay: 1000,
+      timeout: 10000,
     });
     socketRef.current = socket;
 
@@ -23,10 +20,7 @@ export function useSocket() {
     socket.on('disconnect', () => setConnected(false));
     socket.on('connect_error', () => setConnected(false));
 
-    return () => {
-      socket.disconnect();
-      socketRef.current = null;
-    };
+    return () => { socket.disconnect(); socketRef.current = null; };
   }, []);
 
   const emit = useCallback((event: string, data: unknown) => {
@@ -35,9 +29,7 @@ export function useSocket() {
 
   const on = useCallback(<T,>(event: string, handler: (data: T) => void) => {
     socketRef.current?.on(event, handler);
-    return () => {
-      socketRef.current?.off(event, handler);
-    };
+    return () => { socketRef.current?.off(event, handler); };
   }, []);
 
   return { socket: socketRef.current, connected, emit, on };
