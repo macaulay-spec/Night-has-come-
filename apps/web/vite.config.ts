@@ -7,23 +7,15 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '@night-has-come/contracts': path.resolve(__dirname, '../../packages/contracts/src'),
-      '@night-has-come/ui': path.resolve(__dirname, '../../packages/ui/src'),
     },
   },
   server: {
     port: 5173,
     host: '0.0.0.0',
     allowedHosts: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3001',
-        changeOrigin: true,
-      },
-      '/socket.io': {
-        target: 'http://localhost:3002',
-        ws: true,
-      },
-    },
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
   },
 });

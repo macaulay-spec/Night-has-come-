@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import React, { createContext, useContext, useState, useCallback } from 'react';
 
 interface AuthState {
   token: string | null;
@@ -9,13 +9,16 @@ interface AuthState {
 
 interface AuthContextValue extends AuthState {
   signIn: (token: string, userId: string, displayName: string) => void;
+  signUp: (displayName: string) => void;
   signOut: () => void;
 }
 
 const AuthContext = createContext<AuthContextValue>({
   token: null, userId: null, displayName: null, isAuthenticated: false,
-  signIn: () => {}, signOut: () => {},
+  signIn: () => {}, signUp: () => {}, signOut: () => {},
 });
+
+function generateId() { return crypto.randomUUID(); }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<AuthState>(() => {
@@ -27,7 +30,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     return { token: null, userId: null, displayName: null, isAuthenticated: false };
   });
 
-  const signIn = useCallback((token: string, userId: string, displayName: string) => {
+  const signUp = useCallback((displayName: string) => {
+    const token = 'nhc_' + generateId();
+    const userId = generateId();
+    const newState = { token, userId, displayName, isAuthenticated: true };
+    localStorage.setItem('nhc_auth', JSON.stringify(newState));
+    setState(newState);
+  }, []);
+
+  const signIn = useCallback((_token: string, userId: string, displayName: string) => {
+    const token = 'nhc_' + generateId();
     const newState = { token, userId, displayName, isAuthenticated: true };
     localStorage.setItem('nhc_auth', JSON.stringify(newState));
     setState(newState);
@@ -39,7 +51,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ ...state, signIn, signOut }}>
+    <AuthContext.Provider value={{ ...state, signIn, signUp, signOut }}>
       {children}
     </AuthContext.Provider>
   );
