@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #080A10;
+    color: #F4F6FA;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  /* Phase transition animations */
+  .phase-transition {
+    animation: phaseFade 800ms cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  @keyframes phaseFade {
+    0% { opacity: 0; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+}
+
+@layer utilities {
+  /* Accessible focus ring */
+  .focus-ring {
+    @apply outline-none;
+  }
+
+  .focus-ring:focus-visible {
+    box-shadow: 0 0 0 2px #080A10, 0 0 0 4px rgba(185, 231, 255, 0.4);
+    border-radius: 4px;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .phase-transition {
+      animation: none;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

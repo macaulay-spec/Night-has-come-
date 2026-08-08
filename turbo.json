@@ -1,0 +1,42 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "globalEnv": [
+    "NODE_ENV",
+    "DATABASE_URL",
+    "SUPABASE_URL",
+    "SUPABASE_ANON_KEY",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "REDIS_URL",
+    "JWT_SECRET",
+    "PORT",
+    "API_PORT",
+    "REALTIME_PORT",
+    "WEB_URL",
+    "SENTRY_DSN"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", "build/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "typecheck": {
+      "dependsOn": ["^build"]
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "inputs": ["src/**", "test/**", "**/*.test.*", "**/*.spec.*"]
+    },
+    "lint": {},
+    "db:migrate": {},
+    "db:seed": {},
+    "db:generate": {},
+    "clean": {
+      "cache": false
+    }
+  }
+}
