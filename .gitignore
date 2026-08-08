@@ -63,3 +63,4 @@ service-account.json
 tmp/
 temp/
 .vite
+.github/workflows/
