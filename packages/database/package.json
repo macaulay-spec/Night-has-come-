@@ -1,0 +1,34 @@
+{
+  "name": "@night-has-come/database",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Database layer for NIGHT HAS COME (Drizzle ORM + Supabase)",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./src/schema/index.ts",
+    "./client": "./src/client.ts",
+    "./migrate": "./src/migrate.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "tsx src/seed.ts",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@night-has-come/contracts": "*",
+    "@night-has-come/config": "*",
+    "drizzle-orm": "^0.31.2",
+    "postgres": "^3.4.4"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.22.7",
+    "tsx": "^4.15.6",
+    "typescript": "^5.5.2"
+  }
+}

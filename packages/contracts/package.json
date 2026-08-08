@@ -1,0 +1,30 @@
+{
+  "name": "@night-has-come/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared TypeScript types and Zod schemas for NIGHT HAS COME",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./game": "./src/game/index.ts",
+    "./roles": "./src/roles/index.ts",
+    "./events": "./src/events/index.ts",
+    "./api": "./src/api/index.ts",
+    "./realtime": "./src/realtime/index.ts",
+    "./moderation": "./src/moderation/index.ts",
+    "./social": "./src/social/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.2"
+  }
+}

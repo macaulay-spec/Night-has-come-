@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "exactOptionalPropertyTypes": false,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "baseUrl": "${configDir}",
+    "paths": {
+      "@night-has-come/contracts": ["${configDir}/../contracts/src"],
+      "@night-has-come/game-engine": ["${configDir}/../game-engine/src"],
+      "@night-has-come/database": ["${configDir}/../database/src"],
+      "@night-has-come/config": ["${configDir}/../config/src"],
+      "@night-has-come/ui": ["${configDir}/../ui/src"],
+      "@night-has-come/moderation": ["${configDir}/../moderation/src"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "build", ".turbo"]
+}

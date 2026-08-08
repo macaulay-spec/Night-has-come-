@@ -1,0 +1,25 @@
+FROM node:20-alpine AS base
+WORKDIR /app
+
+FROM base AS builder
+COPY package.json package-lock.json ./
+COPY packages/contracts/package.json ./packages/contracts/
+COPY packages/config/package.json ./packages/config/
+COPY packages/game-engine/package.json ./packages/game-engine/
+COPY apps/realtime/package.json ./apps/realtime/
+RUN npm ci --ignore-scripts
+
+COPY . .
+RUN npm run build --filter=@night-has-come/realtime
+
+FROM base AS runner
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 appuser
+
+COPY --from=builder /app/apps/realtime/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./
+
+USER appuser
+EXPOSE 3002
+CMD ["node", "dist/index.js"]
