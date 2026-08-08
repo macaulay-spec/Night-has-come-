@@ -1,0 +1,9 @@
+{
+  "buildCommand": "cd apps/web && npm install vite @vitejs/plugin-react tailwindcss postcss autoprefixer react react-dom react-router-dom zustand @tanstack/react-query socket.io-client && npx vite build",
+  "outputDirectory": "apps/web/dist",
+  "installCommand": "npm install --ignore-scripts",
+  "framework": null,
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
